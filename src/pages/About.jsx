@@ -45,30 +45,30 @@ const About = () => {
 
   const experiences = [
     {
-      year: '2023 - Present',
-      title: 'Senior Full Stack Developer',
-      company: 'Tech Company',
-      description: 'Leading development of web and mobile applications using React, Node.js, and cloud technologies.',
+      year: '2024 - Present',
+      title: 'Frontend Developer',
+      company: 'Digital Gravity',
+      description: 'Leading development of web applications using HTML, CSS, JavaScript, Reactjs, Wordpress , elementor,and cloud technologies.',
       icon: Award,
     },
     {
-      year: '2021 - 2023',
-      title: 'Full Stack Developer',
-      company: 'Startup Inc',
+      year: '2022 - 2023',
+      title: 'Frontend Developer',
+      company: 'Service Now (Freelance)',
       description: 'Developed scalable web applications and RESTful APIs. Collaborated with cross-functional teams.',
       icon: Code,
     },
     {
-      year: '2019 - 2021',
-      title: 'Frontend Developer',
-      company: 'Digital Agency',
-      description: 'Created responsive web interfaces and improved user experience across multiple client projects.',
+      year: '2016 - 2022',
+      title: 'Phone Banking Specialist',
+      company: 'Silk Bank and Mobilink',
+      description: 'Delivered efficient phone banking support and solutions, enhancing customer experience and streamlining banking operations. Collaborated on cross-functional projects to improve service quality and client satisfaction.',
       icon: Smartphone,
     },
   ]
 
   const tools = [
-    'React', 'Next.js', 'Vue.js', 'Angular', 'React Native', 'Flutter',
+    'HTML','CSS','JavaScript','React', 'Next.js', 'Vue.js', 'Angular', 'React Native', 'Flutter',
     'Node.js', 'Express', 'Python', 'Django', 'MongoDB', 'PostgreSQL',
     'AWS', 'Docker', 'Git', 'Figma', 'Adobe XD', 'Jira'
   ]
