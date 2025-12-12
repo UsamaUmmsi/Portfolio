@@ -125,7 +125,7 @@ const About = () => {
               >
                 <div className="w-full h-full rounded-full bg-gray-800 p-2">
                   <div className="w-full h-full rounded-full bg-gradient-to-br from-blue-400/20 to-purple-400/20 flex items-center justify-center">
-                    <div className="text-6xl font-bold text-gradient">UK</div>
+                    <div className="text-6xl font-bold text-gradient">Ummsi</div>
                   </div>
                 </div>
               </motion.div>
