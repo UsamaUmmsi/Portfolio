@@ -62,7 +62,8 @@ const Home = () => {
       </div>
 
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-900/90 via-gray-900/70 to-gray-900 z-10 pointer-events-none" />
+      {/* <div className="absolute inset-0 bg-gradient-to-b from-gray-900/90 via-gray-900/70 to-gray-900 z-10 pointer-events-none" /> */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(147,51,234,0.3),transparent_60%)] z-10" />
 
       {/* Content */}
       <div className="relative z-30 container mx-auto px-4 sm:px-6 lg:px-8 text-center" style={{ zIndex: 30 }}>

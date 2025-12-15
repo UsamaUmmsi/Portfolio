@@ -15,11 +15,11 @@ function AnimatedSphere() {
   return (
     <Sphere ref={meshRef} args={[1, 100, 200]} scale={2}>
       <MeshDistortMaterial
-        color="#6366f1"
+        color="#8b5cf6"
         attach="material"
         distort={0.5}
-        speed={2}
-        roughness={0}
+        speed={0.2}
+        roughness={0.1}
       />
     </Sphere>
   )
