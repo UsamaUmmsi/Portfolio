@@ -89,7 +89,7 @@ const About = () => {
   }
 
   return (
-    <div ref={sectionRef} className="min-h-screen pt-24 pb-20">
+    <div ref={sectionRef} className="min-h-screen pt-24 pb-8 sm:pb-12 md:pb-20">
       <div className="container mx-auto px-5">
         {/* Header */}
         <motion.div
@@ -231,8 +231,13 @@ const About = () => {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.05 }}
-                  whileHover={{ scale: 1.1, y: -5 }}
-                  className="px-4 py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg text-gray-300 font-medium border border-blue-500/30 cursor-default"
+                  whileHover={{ 
+                    scale: 1.1, 
+                    y: -5,
+                    transition: { duration: 0.2 }
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-4 py-2 rounded-lg font-medium cursor-pointer text-white bg-gray-800/50 border border-gray-600/50 hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-200 hover:bg-gradient-to-r hover:from-blue-500 hover:via-indigo-500 hover:to-purple-500 hover:border-blue-500/30"
                 >
                   {tool}
                 </motion.span>

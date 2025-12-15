@@ -193,10 +193,15 @@ const Skills = () => {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.05 }}
-                  whileHover={{ scale: 1.1, y: -5 }}
-                  className="p-4 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-lg text-center border border-blue-500/20 hover:border-blue-500/40 transition-colors cursor-default"
+                  whileHover={{ 
+                    scale: 1.1, 
+                    y: -5,
+                    transition: { duration: 0.2 }
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  className="p-4 rounded-lg text-center cursor-pointer text-white bg-gray-800/50 border border-gray-600/50 hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-200 hover:bg-gradient-to-r hover:from-blue-500 hover:via-indigo-500 hover:to-purple-500 hover:border-blue-500/30"
                 >
-                  <span className="text-gray-300 text-sm font-medium">{tech}</span>
+                  <span className="text-sm font-medium">{tech}</span>
                 </motion.div>
               ))}
             </div>
