@@ -40,7 +40,50 @@
   }
 
   .hero-panel {
-    @apply bg-gray-900/70 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl;
+    @apply bg-gray-900/20 backdrop-blur-lg rounded-3xl shadow-2xl;
+    border: 1px solid;
+    border-image: linear-gradient(135deg, rgba(147, 51, 234, 0.5), rgba(79, 70, 229, 0.5), rgba(59, 130, 246, 0.5)) 1;
+    border-radius: 1.5rem;
+  }
+
+  .about-panel {
+    @apply bg-gray-900/20 backdrop-blur-lg rounded-2xl shadow-2xl;
+  }
+
+  .hero-buttons {
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 10000 !important;
+    position: relative !important;
+  }
+
+  .hero-buttons a,
+  .hero-buttons div {
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 10000 !important;
+    position: relative !important;
+    color: white !important;
+  }
+
+  .hero-name,
+  .hero-subtitle,
+  .hero-panel {
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 1000 !important;
+    position: relative !important;
+  }
+
+  .hero-name * {
+    opacity: 1 !important;
+    visibility: visible !important;
+    color: white !important;
+  }
+
+  .hero-subtitle * {
+    opacity: 1 !important;
+    visibility: visible !important;
   }
 }
 
@@ -61,3 +104,127 @@
   @apply from-blue-400 to-purple-400;
 }
 
+/* Glass Avatar Styles */
+.glass-avatar {
+  position: relative;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 40px rgba(147, 51, 234, 0.3),
+              0 0 0 1px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.2), rgba(79, 70, 229, 0.2), rgba(59, 130, 246, 0.2));
+}
+
+.glass-avatar::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.4), rgba(79, 70, 229, 0.4), rgba(59, 130, 246, 0.4));
+  border-radius: 1rem;
+  z-index: -1;
+  filter: blur(8px);
+}
+
+/* Dark mode glass avatar */
+.dark .glass-avatar {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Light mode glass avatar */
+body:not(.dark) .glass-avatar {
+  border-color: rgba(147, 51, 234, 0.3);
+  box-shadow: 0 20px 40px rgba(147, 51, 234, 0.2),
+              0 0 0 1px rgba(147, 51, 234, 0.1);
+}
+/* Usama Khan indigo color override */
+.hero-name span.text-indigo-500 {
+  color: #6366f1 !important;
+}
+
+.dark .hero-name span.text-indigo-500 {
+  color: #6366f1 !important;
+}
+
+body:not(.dark) .hero-name span.text-indigo-500 {
+  color: #6366f1 !important;
+}
+
+/* Extra responsive breakpoints */
+@media (max-width: 475px) {
+  .hero-panel {
+    padding: 1rem !important;
+    margin: 0.5rem !important;
+  }
+  
+  .about-panel {
+    padding: 1rem !important;
+  }
+  
+  .container {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+}
+
+/* Custom xs breakpoint */
+@media (min-width: 375px) {
+  .xs\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+  
+  .xs\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  
+  .xs\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  
+  .xs\:w-56 {
+    width: 14rem;
+  }
+  
+  .xs\:h-56 {
+    height: 14rem;
+  }
+  
+  .xs\:w-64 {
+    width: 16rem;
+  }
+  
+  .xs\:h-64 {
+    height: 16rem;
+  }
+  
+  .xs\:inline {
+    display: inline;
+  }
+}
+
+/* About section heading gradient override */
+.about-panel h2 span.bg-gradient-to-r {
+  background: linear-gradient(to right, #ffffff, #f3f4f6, #ffffff) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+}
+
+.about-panel h2 span.bg-gradient-to-r:nth-child(2) {
+  background: linear-gradient(to right, #9333ea, #6366f1, #3b82f6) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+}
+
+/* About section content gradient override */
+.about-panel p span.bg-gradient-to-r {
+  background: linear-gradient(to right, #9333ea, #6366f1) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+}

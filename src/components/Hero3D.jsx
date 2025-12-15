@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { OrbitControls, Sphere, MeshDistortMaterial } from '@react-three/drei'
+import { Sphere, MeshDistortMaterial } from '@react-three/drei'
 
 function AnimatedSphere() {
   const meshRef = useRef()
@@ -59,14 +59,24 @@ const Hero3D = () => {
   return (
     <Canvas 
       camera={{ position: [0, 0, 5], fov: 75 }}
-      style={{ position: 'absolute', top: 0, left: 0, zIndex: 0 }}
+      style={{ 
+        position: 'absolute', 
+        top: 0, 
+        left: 0, 
+        zIndex: -1,
+        pointerEvents: 'none',
+        width: '100%',
+        height: '100%'
+      }}
+      eventSource={undefined}
+      eventPrefix="client"
     >
       <ambientLight intensity={0.5} />
       <directionalLight position={[10, 10, 5]} intensity={1} />
       <pointLight position={[-10, -10, -5]} intensity={0.5} color="#8b5cf6" />
       <AnimatedSphere />
       <Particles />
-      <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} />
+
     </Canvas>
   )
 }

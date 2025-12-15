@@ -8,6 +8,7 @@ import About from './pages/About'
 import Projects from './pages/Projects'
 import Skills from './pages/Skills'
 import Contact from './pages/Contact'
+import ContactSubmissions from './components/ContactSubmissions'
 import gsap from 'gsap'
 
 function AppContent() {
@@ -32,6 +33,7 @@ function AppContent() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/skills" element={<Skills />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/admin/submissions" element={<ContactSubmissions />} />
           </Routes>
         </div>
       </AnimatePresence>

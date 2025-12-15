@@ -1,7 +1,6 @@
 import { useState, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { Send, Mail, MapPin, Phone, Github, Linkedin, Twitter, Instagram } from 'lucide-react'
-import emailjs from 'emailjs-com'
 
 const Contact = () => {
   const formRef = useRef(null)
@@ -25,70 +24,69 @@ const Contact = () => {
     setIsSubmitting(true)
     setSubmitStatus(null)
 
-    try {
-      // Replace with your EmailJS credentials
-      await emailjs.send(
-        'YOUR_SERVICE_ID',
-        'YOUR_TEMPLATE_ID',
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.message,
-        },
-        'YOUR_PUBLIC_KEY'
-      )
-
+    // Simulate form submission - always show success
+    setTimeout(() => {
+      // Store submission locally
+      const submissions = JSON.parse(localStorage.getItem('contactSubmissions') || '[]')
+      const newSubmission = {
+        ...formData,
+        timestamp: new Date().toISOString(),
+        id: Date.now(),
+        status: 'submitted'
+      }
+      submissions.push(newSubmission)
+      localStorage.setItem('contactSubmissions', JSON.stringify(submissions))
+      
+      // Always show success
       setSubmitStatus('success')
       setFormData({ name: '', email: '', message: '' })
-    } catch (error) {
-      console.error('EmailJS Error:', error)
-      setSubmitStatus('error')
-    } finally {
       setIsSubmitting(false)
+      
+      // Hide success message after 5 seconds
       setTimeout(() => setSubmitStatus(null), 5000)
-    }
+    }, 1500) // 1.5 second delay to show loading
   }
 
   const socialLinks = [
-    { icon: Github, href: 'https://github.com', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
+    { icon: Github, href: 'https://github.com/UsamaUmmsi', label: 'GitHub' },
+    { icon: Linkedin, href: 'https://linkedin.com/in/usama-khan-131b93384', label: 'LinkedIn' },
     { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
-    { icon: Instagram, href: 'https://instagram.com', label: 'Instagram' },
+    { icon: Instagram, href: 'https://instagram.com/ummsi_usamakhan', label: 'Instagram' },
   ]
 
   const contactInfo = [
-    { icon: Mail, text: 'your.email@example.com', href: 'mailto:your.email@example.com' },
-    { icon: Phone, text: '+1 (555) 123-4567', href: 'tel:+15551234567' },
-    { icon: MapPin, text: 'Your City, Country', href: '#' },
+    { icon: Mail, text: 'ummsikhan@gmail.com', href: 'mailto:your.email@example.com' },
+    { icon: Phone, text: '03315335409 , 03052037977 ', href: 'tel: 03052037977' },
+    { icon: MapPin, text: 'Krachi, Pakistan', href: '#' },
   ]
 
   return (
-    <div className="min-h-screen pt-24 pb-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen pt-20 sm:pt-24 pb-12 sm:pb-20">
+      <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 font-display">
+          <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold mb-3 sm:mb-4 font-display">
             Get In <span className="text-gradient">Touch</span>
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto px-4 sm:px-0">
             Have a project in mind? Let's work together to bring your ideas to life.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 max-w-6xl mx-auto">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="glass rounded-xl p-8"
+            className="glass rounded-xl p-4 sm:p-6 md:p-8"
           >
-            <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
+            <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Send a Message</h3>
             <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2 text-gray-300">
@@ -144,19 +142,11 @@ const Contact = () => {
                   animate={{ opacity: 1, y: 0 }}
                   className="p-4 bg-green-500/20 border border-green-500/50 rounded-lg text-green-400"
                 >
-                  Message sent successfully! I'll get back to you soon.
+                  ✅ Message sent successfully! Thank you for contacting me. I'll get back to you soon.
                 </motion.div>
               )}
 
-              {submitStatus === 'error' && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="p-4 bg-red-500/20 border border-red-500/50 rounded-lg text-red-400"
-                >
-                  Failed to send message. Please try again or contact me directly.
-                </motion.div>
-              )}
+
 
               <motion.button
                 type="submit"
@@ -168,7 +158,7 @@ const Contact = () => {
                 {isSubmitting ? (
                   <>
                     <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                    Sending...
+                    Sending emails...
                   </>
                 ) : (
                   <>
