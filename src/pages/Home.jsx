@@ -5,6 +5,7 @@ import { ChevronDown, Code, Smartphone } from 'lucide-react'
 import gsap from 'gsap'
 import Hero3D from '../components/Hero3D'
 
+
 const Home = () => {
   const heroRef = useRef(null)
   const textRef = useRef(null)

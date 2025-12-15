@@ -18,7 +18,7 @@ function AnimatedSphere() {
         color="#8b5cf6"
         attach="material"
         distort={0.5}
-        speed={0.2}
+        speed={0.02}
         roughness={0.1}
       />
     </Sphere>
@@ -50,7 +50,7 @@ function Particles() {
           itemSize={3}
         />
       </bufferGeometry>
-      <pointsMaterial size={0.05} color="#8b5cf6" />
+      <pointsMaterial size={0.05} color="#3c005a" />
     </points>
   )
 }
