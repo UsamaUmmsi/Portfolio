@@ -49,7 +49,7 @@ const Home = () => {
               {/* Left Side - Picture */}
               <div className="flex justify-center lg:justify-start order-1 lg:order-none">
                 <div className="relative">
-                  <div className="w-48 h-48 xs:w-56 xs:h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-2xl shadow-2xl glass-avatar overflow-hidden">
+                  <div className="w-48 h-48 xs:w-56 xs:h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full shadow-2xl glass-avatar overflow-hidden">
                     <img 
                       src="/219251270.jpg" 
                       alt="Usama Khan - Frontend & Mobile App Developer"
@@ -149,11 +149,11 @@ const Home = () => {
                     <ChevronDown className="w-6 h-6 text-white animate-bounce drop-shadow-lg" />
                   </div>
 
-                  <Link to="/contact" className="block">
+                  <Link to="/contact" className="block w-full sm:w-auto">
                     <motion.div
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="px-8 py-4 bg-gray-900/80 backdrop-blur-md border-2 border-white/30 rounded-lg font-semibold text-white shadow-2xl hover:bg-gray-800/90 hover:border-white/50 transition-all cursor-pointer"
+                      className="px-6 sm:px-8 py-3 sm:py-4 bg-gray-900/80 backdrop-blur-md border-2 border-white/30 rounded-lg font-semibold text-white shadow-2xl hover:bg-gray-800/90 hover:border-white/50 transition-all cursor-pointer text-center text-sm sm:text-base"
                       style={{ 
                         color: '#ffffff !important',
                         fontWeight: '600',
@@ -176,7 +176,7 @@ const Home = () => {
       </div>
 
       {/* Gradient Divider Line */}
-      <div className="relative flex justify-center py-12">
+      <div className="relative flex justify-center py-6 sm:py-8 md:py-12">
         <div className="w-full max-w-4xl h-px bg-gradient-to-r from-transparent via-purple-500/50 to-transparent"></div>
       </div>
 

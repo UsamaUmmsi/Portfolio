@@ -160,8 +160,8 @@ body:not(.dark) .hero-name span.text-indigo-500 {
   }
   
   .container {
-    padding-left: 0.75rem !important;
-    padding-right: 0.75rem !important;
+    padding-left: 1.75rem !important;
+    padding-right: 1.75rem !important;
   }
 }
 

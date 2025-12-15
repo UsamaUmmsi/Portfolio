@@ -114,30 +114,55 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu - Full Screen Overlay */}
         <motion.div
           initial={false}
           animate={{
-            height: isMobileMenuOpen ? 'auto' : 0,
             opacity: isMobileMenuOpen ? 1 : 0,
+            visibility: isMobileMenuOpen ? 'visible' : 'hidden',
           }}
-          className="md:hidden overflow-hidden mt-4"
+          transition={{ duration: 0.3 }}
+          className="md:hidden fixed inset-0 z-40 bg-gray-900/95 backdrop-blur-lg"
+          style={{ top: 0, left: 0, right: 0, bottom: 0 }}
         >
-          <div className="flex flex-col space-y-4 py-4">
-            {navLinks.map((link) => (
-              <Link
+          <div className="flex flex-col items-center justify-center min-h-screen space-y-8 px-5">
+            {navLinks.map((link, index) => (
+              <motion.div
                 key={link.path}
-                to={link.path}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={`text-base font-medium transition-colors ${
-                  location.pathname === link.path
-                    ? 'text-blue-400'
-                    : 'text-gray-300 hover:text-white'
-                }`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ 
+                  opacity: isMobileMenuOpen ? 1 : 0,
+                  y: isMobileMenuOpen ? 0 : 20 
+                }}
+                transition={{ delay: index * 0.1, duration: 0.3 }}
               >
-                {link.name}
-              </Link>
+                <Link
+                  to={link.path}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`text-3xl font-bold transition-colors block text-center ${
+                    location.pathname === link.path
+                      ? 'text-blue-400'
+                      : 'text-white hover:text-blue-400'
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              </motion.div>
             ))}
+            
+            {/* Close button at bottom */}
+            <motion.button
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ 
+                opacity: isMobileMenuOpen ? 1 : 0,
+                y: isMobileMenuOpen ? 0 : 20 
+              }}
+              transition={{ delay: navLinks.length * 0.1, duration: 0.3 }}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="mt-8 p-4 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 transition-colors"
+            >
+              <X className="w-6 h-6 text-white" />
+            </motion.button>
           </div>
         </motion.div>
       </div>
