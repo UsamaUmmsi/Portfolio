@@ -50,7 +50,7 @@ function Particles() {
           itemSize={3}
         />
       </bufferGeometry>
-      <pointsMaterial size={0.05} color="#3c005a" />
+      <pointsMaterial size={0.05} color="#cc65ff" />
     </points>
   )
 }

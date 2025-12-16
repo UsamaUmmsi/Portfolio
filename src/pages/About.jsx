@@ -34,13 +34,13 @@ const About = () => {
 
   const skills = [
     { name: 'React', level: 90, icon: Code },
-    { name: 'JavaScript', level: 95, icon: Code },
-    { name: 'TypeScript', level: 85, icon: Code },
-    { name: 'Node.js', level: 80, icon: Database },
-    { name: 'React Native', level: 85, icon: Smartphone },
-    { name: 'Flutter', level: 75, icon: Smartphone },
-    { name: 'MongoDB', level: 80, icon: Database },
-    { name: 'AWS', level: 70, icon: Cloud },
+    { name: 'JavaScript', level: 75, icon: Code },
+    { name: 'TypeScript', level: 80, icon: Code },
+    { name: 'Node.js', level: 50, icon: Database },
+    { name: 'React Native', level: 50, icon: Smartphone },
+    { name: 'Flutter', level: 30, icon: Smartphone },
+    { name: 'MongoDB', level: 30, icon: Database },
+    { name: 'AWS', level: 20, icon: Cloud },
   ]
 
   const experiences = [
@@ -195,15 +195,15 @@ const About = () => {
                     index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
                   }`}
                 >
-                  <div className={`flex-1 ${index % 2 === 0 ? 'md:pr-8 md:text-right' : 'md:pl-8'}`}>
-                    <div className="glass rounded-xl p-6 max-w-md mx-auto md:mx-0">
+                  <div className={`flex-1 pl-16 md:pl-0 ${index % 2 === 0 ? 'md:pr-8 md:text-right' : 'md:pl-8'}`}>
+                    <div className={`glass rounded-xl p-4 sm:p-6 max-w-sm sm:max-w-md md:mx-0 ${index % 2 === 0 ? 'md:ml-auto md:mr-0' : 'md:mr-auto md:ml-0'}`}>
                       <div className="flex items-center gap-2 mb-2">
-                        <exp.icon className="w-5 h-5 text-purple-400" />
-                        <span className="text-sm text-purple-400 font-medium">{exp.year}</span>
+                        <exp.icon className="w-4 h-4 sm:w-5 sm:h-5 text-purple-400" />
+                        <span className="text-xs sm:text-sm text-purple-400 font-medium">{exp.year}</span>
                       </div>
-                      <h4 className="text-xl font-bold mb-2">{exp.title}</h4>
-                      <p className="text-blue-400 mb-2">{exp.company}</p>
-                      <p className="text-gray-400 text-sm">{exp.description}</p>
+                      <h4 className="text-lg sm:text-xl font-bold mb-1 sm:mb-2">{exp.title}</h4>
+                      <p className="text-blue-400 mb-1 sm:mb-2 text-sm">{exp.company}</p>
+                      <p className="text-gray-400 text-xs sm:text-sm leading-tight">{exp.description}</p>
                     </div>
                   </div>
                   <div className="absolute left-8 md:left-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-gray-900 transform md:-translate-x-1/2 z-10" />
@@ -237,7 +237,7 @@ const About = () => {
                     transition: { duration: 0.2 }
                   }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-4 py-2 rounded-lg font-medium cursor-pointer text-white bg-gray-800/50 border border-gray-600/50 hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-200 hover:bg-gradient-to-r hover:from-blue-500 hover:via-indigo-500 hover:to-purple-500 hover:border-blue-500/30"
+                  className="px-4 py-2 rounded-lg font-medium cursor-pointer text-gray-300 bg-gray-800/50 border border-gray-600/50 hover:text-purple-400 hover:border-purple-500/40 transition-all duration-200"
                 >
                   {tool}
                 </motion.span>

@@ -20,7 +20,7 @@ const Skills = () => {
         { name: 'React', level: 90, icon: '⚛️' },
         { name: 'Next.js', level: 85, icon: '▲' },
         { name: 'Vue.js', level: 80, icon: '🟢' },
-        { name: 'Angular', level: 75, icon: '🅰️' },
+        { name: 'JavaScript', level: 75, icon: '🟨' },
         { name: 'TypeScript', level: 88, icon: '📘' },
         { name: 'TailwindCSS', level: 92, icon: '🎨' },
       ],
@@ -30,12 +30,12 @@ const Skills = () => {
       icon: Database,
       color: 'from-indigo-500 to-purple-500',
       skills: [
-        { name: 'Node.js', level: 88, icon: '🟢' },
+        { name: 'Node.js', level: 50, icon: '🟢' },
         { name: 'Express', level: 85, icon: '🚂' },
-        { name: 'Python', level: 82, icon: '🐍' },
-        { name: 'Django', level: 78, icon: '🎸' },
+        { name: 'Python', level: 30, icon: '🐍' },
+        { name: 'Django', level: 30, icon: '🎸' },
         { name: 'REST APIs', level: 90, icon: '🔌' },
-        { name: 'GraphQL', level: 75, icon: '📊' },
+        { name: 'GraphQL', level: 50, icon: '📊' },
       ],
     },
     {
@@ -43,9 +43,9 @@ const Skills = () => {
       icon: Smartphone,
       color: 'from-purple-500 to-indigo-500',
       skills: [
-        { name: 'React Native', level: 85, icon: '📱' },
-        { name: 'Flutter', level: 80, icon: '🦋' },
-        { name: 'iOS Development', level: 70, icon: '🍎' },
+        { name: 'React Native', level: 50, icon: '📱' },
+        { name: 'Flutter', level: 30, icon: '🦋' },
+        { name: 'iOS Development', level: 50, icon: '🍎' },
         { name: 'Android Development', level: 75, icon: '🤖' },
         { name: 'Expo', level: 82, icon: '⚡' },
       ],
@@ -199,7 +199,7 @@ const Skills = () => {
                     transition: { duration: 0.2 }
                   }}
                   whileTap={{ scale: 0.95 }}
-                  className="p-4 rounded-lg text-center cursor-pointer text-white bg-gray-800/50 border border-gray-600/50 hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-200 hover:bg-gradient-to-r hover:from-blue-500 hover:via-indigo-500 hover:to-purple-500 hover:border-blue-500/30"
+                  className="p-4 rounded-lg text-center cursor-pointer text-gray-300 bg-gray-800/50 border border-gray-600/50 hover:text-purple-400 hover:border-purple-500/40 transition-all duration-200"
                 >
                   <span className="text-sm font-medium">{tech}</span>
                 </motion.div>

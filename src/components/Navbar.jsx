@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Moon, Sun, Menu, X } from 'lucide-react'
+import { Menu, X, Eye, EyeOff } from 'lucide-react'
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
-  const [isDark, setIsDark] = useState(true)
+  const [isNavbarVisible, setIsNavbarVisible] = useState(true)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const location = useLocation()
 
@@ -18,8 +18,8 @@ const Navbar = () => {
   }, [])
 
   useEffect(() => {
-    document.documentElement.classList.toggle('dark', isDark)
-  }, [isDark])
+    document.documentElement.classList.add('dark')
+  }, [])
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -30,14 +30,40 @@ const Navbar = () => {
   ]
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled ? 'py-3' : 'py-6'
-      }`}
-    >
+    <>
+      {/* Toggle Button - Always visible when navbar is hidden */}
+      {!isNavbarVisible && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.3 }}
+          className="fixed top-4 right-4 z-[60] flex items-center gap-2 p-3 glass-dark rounded-full shadow-2xl backdrop-blur-xl border border-white/20"
+        >
+          <span className="text-xs text-white font-medium">NAV</span>
+          <button
+            onClick={() => setIsNavbarVisible(true)}
+            className="relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none bg-gray-600"
+            aria-label="Show navbar"
+          >
+            <span className="inline-block h-4 w-4 transform rounded-full bg-white translate-x-1" />
+          </button>
+          <span className="text-xs text-white font-medium">OFF</span>
+        </motion.div>
+      )}
+
+      {/* Main Navbar */}
+      <motion.nav
+        initial={{ y: -100 }}
+        animate={{ 
+          y: isNavbarVisible ? 0 : -100,
+          opacity: isNavbarVisible ? 1 : 0
+        }}
+        transition={{ duration: 0.5 }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          isScrolled ? 'py-3' : 'py-6'
+        }`}
+      >
       <div className={`container mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-500 ${
         isScrolled 
           ? 'max-w-4xl' 
@@ -86,20 +112,22 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Theme Toggle & Mobile Menu Button */}
-          <div className="flex items-center space-x-2">
-            <button
-              onClick={() => setIsDark(!isDark)}
-              className={`p-2 transition-all duration-300 ${
-                isScrolled 
-                  ? 'rounded-full bg-white/10 hover:bg-white/20 border border-white/20' 
-                  : 'rounded-lg glass hover:bg-white/20'
-              }`}
-              aria-label="Toggle theme"
-            >
-              {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-            </button>
+          {/* Navbar Toggle & Mobile Menu Button */}
+          <div className="flex items-center space-x-3">
+            {/* Navbar Toggle Switch - Inside navbar */}
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-white font-medium hidden sm:block">NAV</span>
+              <button
+                onClick={() => setIsNavbarVisible(false)}
+                className="relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none bg-blue-600"
+                aria-label="Hide navbar"
+              >
+                <span className="inline-block h-4 w-4 transform rounded-full bg-white translate-x-6" />
+              </button>
+              <span className="text-xs text-white font-medium hidden sm:block">ON</span>
+            </div>
 
+            {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className={`md:hidden p-2 transition-all duration-300 ${
@@ -167,6 +195,7 @@ const Navbar = () => {
         </motion.div>
       </div>
     </motion.nav>
+    </>
   )
 }
 

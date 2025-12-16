@@ -56,7 +56,7 @@ const Contact = () => {
 
   const contactInfo = [
     { icon: Mail, text: 'ummsikhan@gmail.com', href: 'mailto:your.email@example.com' },
-    { icon: Phone, text: '03315335409 , 03052037977 ', href: 'tel: 03052037977' },
+    { icon: Phone, text: '03315335409 03052037977 ', href: 'tel: 03052037977' },
     { icon: MapPin, text: 'Krachi, Pakistan', href: '#' },
   ]
 
