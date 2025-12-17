@@ -182,7 +182,7 @@ const About = () => {
         >
           <h3 className="text-3xl font-bold mb-12 text-center">Experience</h3>
           <div className="relative">
-            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 to-purple-500 transform md:-translate-x-1/2" />
+            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 to-purple-500 transform -translate-x-1/2" />
             <div className="space-y-12">
               {experiences.map((exp, index) => (
                 <motion.div
@@ -192,21 +192,21 @@ const About = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.2 }}
                   className={`relative flex items-center ${
-                    index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                    index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
                   }`}
                 >
-                  <div className={`flex-1 pl-16 md:pl-0 ${index % 2 === 0 ? 'md:pr-8 md:text-right' : 'md:pl-8'}`}>
-                    <div className={`glass rounded-xl p-4 sm:p-6 max-w-sm sm:max-w-md md:mx-0 ${index % 2 === 0 ? 'md:ml-auto md:mr-0' : 'md:mr-auto md:ml-0'}`}>
+                  <div className={`flex-1 ${index % 2 === 0 ? 'pr-4 sm:pr-8 text-right' : 'pl-4 sm:pl-8'}`}>
+                    <div className={`glass rounded-xl p-4 sm:p-6 max-w-xs sm:max-w-sm md:max-w-md ${index % 2 === 0 ? 'ml-auto mr-0' : 'mr-auto ml-0'}`}>
                       <div className="flex items-center gap-2 mb-2">
                         <exp.icon className="w-4 h-4 sm:w-5 sm:h-5 text-purple-400" />
                         <span className="text-xs sm:text-sm text-purple-400 font-medium">{exp.year}</span>
                       </div>
                       <h4 className="text-lg sm:text-xl font-bold mb-1 sm:mb-2">{exp.title}</h4>
                       <p className="text-blue-400 mb-1 sm:mb-2 text-sm">{exp.company}</p>
-                      <p className="text-gray-400 text-xs sm:text-sm leading-tight">{exp.description}</p>
+                      <p className="text-gray-400 text-xs sm:text-sm leading-tight text-left">{exp.description}</p>
                     </div>
                   </div>
-                  <div className="absolute left-8 md:left-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-gray-900 transform md:-translate-x-1/2 z-10" />
+                  <div className="absolute left-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-gray-900 transform -translate-x-1/2 z-10" />
                   <div className="flex-1" />
                 </motion.div>
               ))}
@@ -223,7 +223,7 @@ const About = () => {
         >
           <h3 className="text-3xl font-bold mb-8 text-center">Tools & Technologies</h3>
           <div className="glass rounded-xl p-8">
-            <div className="flex flex-wrap gap-3 justify-center">
+            <div className="flex flex-wrap gap-4 justify-center">
               {tools.map((tool, index) => (
                 <motion.span
                   key={index}
@@ -237,7 +237,7 @@ const About = () => {
                     transition: { duration: 0.2 }
                   }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-4 py-2 rounded-lg font-medium cursor-pointer text-gray-300 bg-gray-800/50 border border-gray-600/50 hover:text-purple-400 hover:border-purple-500/40 transition-all duration-200"
+                  className="px-4 py-2 rounded-lg text-sm font-medium cursor-pointer text-gray-300 bg-gray-800/50 border border-gray-600/50 hover:text-purple-400 hover:border-purple-500/40 transition-all duration-200"
                 >
                   {tool}
                 </motion.span>

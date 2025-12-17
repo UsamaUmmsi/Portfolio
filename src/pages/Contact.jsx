@@ -50,7 +50,7 @@ const Contact = () => {
   const socialLinks = [
     { icon: Github, href: 'https://github.com/UsamaUmmsi', label: 'GitHub' },
     { icon: Linkedin, href: 'https://linkedin.com/in/usama-khan-131b93384', label: 'LinkedIn' },
-    { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
+    { icon: Twitter, href: 'https://x.com/ummsikhan', label: 'Twitter' },
     { icon: Instagram, href: 'https://instagram.com/ummsi_usamakhan', label: 'Instagram' },
   ]
 

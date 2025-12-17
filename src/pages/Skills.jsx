@@ -180,7 +180,7 @@ const Skills = () => {
         >
           <h3 className="text-3xl font-bold mb-8 text-center">Additional Technologies</h3>
           <div className="glass rounded-xl p-8">
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            <div className="flex flex-wrap gap-4 justify-center">
               {[
                 'HTML5', 'CSS3', 'SASS', 'Bootstrap', 'Material-UI', 'Chakra UI',
                 'Redux', 'Zustand', 'React Query', 'Apollo', 'Jest', 'Cypress',
@@ -199,7 +199,7 @@ const Skills = () => {
                     transition: { duration: 0.2 }
                   }}
                   whileTap={{ scale: 0.95 }}
-                  className="p-4 rounded-lg text-center cursor-pointer text-gray-300 bg-gray-800/50 border border-gray-600/50 hover:text-purple-400 hover:border-purple-500/40 transition-all duration-200"
+                  className="px-4 py-2 rounded-lg text-center cursor-pointer text-gray-300 bg-gray-800/50 border border-gray-600/50 hover:text-purple-400 hover:border-purple-500/40 transition-all duration-200"
                 >
                   <span className="text-sm font-medium">{tech}</span>
                 </motion.div>

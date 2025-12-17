@@ -177,6 +177,10 @@ body:not(.dark) .hero-name span.text-indigo-500 {
     padding-left: 1.75rem !important;
     padding-right: 1.75rem !important;
   }
+  
+  .min-h-screen {
+    min-height: 85vh !important;
+  }
 }
 
 /* Custom xs breakpoint */

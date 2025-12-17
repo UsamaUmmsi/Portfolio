@@ -43,7 +43,7 @@ const Navbar = () => {
           <span className="text-xs text-white font-medium">NAV</span>
           <button
             onClick={() => setIsNavbarVisible(true)}
-            className="relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none bg-gray-600"
+            className="relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none bg-gradient-to-r from-gray-600 to-gray-700"
             aria-label="Show navbar"
           >
             <span className="inline-block h-4 w-4 transform rounded-full bg-white translate-x-1" />
@@ -119,7 +119,7 @@ const Navbar = () => {
               <span className="text-xs text-white font-medium hidden sm:block">NAV</span>
               <button
                 onClick={() => setIsNavbarVisible(false)}
-                className="relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none bg-blue-600"
+                className="relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-500"
                 aria-label="Hide navbar"
               >
                 <span className="inline-block h-4 w-4 transform rounded-full bg-white translate-x-6" />
@@ -154,6 +154,31 @@ const Navbar = () => {
           style={{ top: 0, left: 0, right: 0, bottom: 0 }}
         >
           <div className="flex flex-col items-center justify-center min-h-screen space-y-8 px-5">
+            {/* Rotating Ummsi Circle */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ 
+                opacity: isMobileMenuOpen ? 1 : 0,
+                y: isMobileMenuOpen ? 0 : 20 
+              }}
+              transition={{ delay: 0, duration: 0.3 }}
+              className="mb-4"
+            >
+              <div className="relative w-32 h-32">
+                <motion.div
+                  className="w-full h-full rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-500 p-1"
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+                >
+                  <div className="w-full h-full rounded-full bg-gray-800 p-2">
+                    <div className="w-full h-full rounded-full bg-gradient-to-br from-indigo-400/20 to-purple-400/20 flex items-center justify-center">
+                      <div className="text-2xl font-bold bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-500 bg-clip-text text-transparent">Ummsi</div>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+            </motion.div>
+
             {navLinks.map((link, index) => (
               <motion.div
                 key={link.path}
@@ -162,15 +187,15 @@ const Navbar = () => {
                   opacity: isMobileMenuOpen ? 1 : 0,
                   y: isMobileMenuOpen ? 0 : 20 
                 }}
-                transition={{ delay: index * 0.1, duration: 0.3 }}
+                transition={{ delay: (index + 1) * 0.1, duration: 0.3 }}
               >
                 <Link
                   to={link.path}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`text-3xl font-bold transition-colors block text-center ${
                     location.pathname === link.path
-                      ? 'text-blue-400'
-                      : 'text-white hover:text-blue-400'
+                      ? 'bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-500 bg-clip-text text-transparent'
+                      : 'text-white hover:bg-gradient-to-r hover:from-indigo-400 hover:via-purple-400 hover:to-blue-400 hover:bg-clip-text hover:text-transparent'
                   }`}
                 >
                   {link.name}
@@ -185,7 +210,7 @@ const Navbar = () => {
                 opacity: isMobileMenuOpen ? 1 : 0,
                 y: isMobileMenuOpen ? 0 : 20 
               }}
-              transition={{ delay: navLinks.length * 0.1, duration: 0.3 }}
+              transition={{ delay: (navLinks.length + 1) * 0.1, duration: 0.3 }}
               onClick={() => setIsMobileMenuOpen(false)}
               className="mt-8 p-4 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 transition-colors"
             >

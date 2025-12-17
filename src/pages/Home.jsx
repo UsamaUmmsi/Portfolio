@@ -11,7 +11,7 @@ const Home = () => {
   const socialLinks = [
     { icon: Github, href: 'https://github.com/UsamaUmmsi', label: 'GitHub' },
     { icon: Linkedin, href: 'https://linkedin.com/in/usama-khan-131b93384', label: 'LinkedIn' },
-    { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
+    { icon: Twitter, href: 'https://x.com/ummsikhan', label: 'Twitter' },
     { icon: Instagram, href: 'https://instagram.com/ummsi_usamakhan', label: 'Instagram' },
   ]
 
@@ -43,7 +43,7 @@ const Home = () => {
 
         {/* Hero Content */}
         <div className="relative z-30 container mx-auto px-3 sm:px-4 md:px-6 lg:px-8" style={{ zIndex: 30 }}>
-          <div className="hero-panel px-4 sm:px-6 md:px-8 lg:px-10 py-8 sm:py-10 md:py-12 mx-auto max-w-7xl">
+          <div className="hero-panel px-4 sm:px-6 md:px-8 lg:px-10 py-4 sm:py-8 md:py-12 mx-auto max-w-7xl">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 items-center">
               
               {/* Left Side - Picture */}
@@ -89,7 +89,7 @@ const Home = () => {
                   }}
                 >
                   <span className="text-white">Hi, I'm</span> <span className="text-indigo-500 font-bold" style={{ filter: 'drop-shadow(0 0 10px rgba(99, 102, 241, 0.8))' }}>Usama Khan</span>
-                  <p className='text-xs xs:text-sm sm:text-base font-extralight text-center lg:text-left mt-4 sm:mt-6 text-zinc-300 px-2 sm:px-0' style={{ color: '#d4d4d8 !important', opacity: 1, visibility: 'visible' }}>
+                  <p className='text-xs xs:text-sm sm:text-base font-extralight text-justify lg:text-left mt-4 sm:mt-6 text-zinc-300 px-2 sm:px-0' style={{ color: '#d4d4d8 !important', opacity: 1, visibility: 'visible' }}>
                     I am a Frontend and Mobile App Developer, creating responsive and visually stunning digital experiences. I turn designs into functional websites and apps using modern technologies like HTML, CSS, JavaScript, React, and Flutter. My goal is to deliver seamless, efficient, and high-quality solutions for every user.
                   </p>
                 </div>
@@ -176,12 +176,12 @@ const Home = () => {
       </div>
 
       {/* Gradient Divider Line */}
-      <div className="relative flex justify-center py-6 sm:py-8 md:py-12">
+      <div className="relative flex justify-center pt-0 pb-2 sm:pt-2 sm:pb-4 md:pt-6 md:pb-12 z-20">
         <div className="w-full max-w-4xl h-px bg-gradient-to-r from-transparent via-purple-500/50 to-transparent"></div>
       </div>
 
       {/* About Me Section */}
-      <div className="relative py-12 sm:py-16 md:py-20 px-3 sm:px-4 md:px-6 lg:px-8">
+      <div className="relative py-6 sm:py-12 md:py-20 px-3 sm:px-4 md:px-6 lg:px-8 z-20">
         <div className="container mx-auto max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -213,19 +213,19 @@ const Home = () => {
                   className="space-y-3 sm:space-y-4 text-gray-300"
                   style={{ opacity: 1, visibility: 'visible' }}
                 >
-                  <p className="text-sm sm:text-base md:text-lg leading-relaxed text-center lg:text-left" style={{ color: '#d4d4d8 !important' }}>
+                  <p className="text-sm sm:text-base md:text-lg leading-relaxed text-justify lg:text-left" style={{ color: '#d4d4d8 !important' }}>
                     I fell in love with programming and I have at least learnt something, I think… 🤷‍♂️
                   </p>
                   
-                  <p className="text-sm sm:text-base md:text-lg leading-relaxed text-center lg:text-left" style={{ color: '#d4d4d8 !important' }}>
+                  <p className="text-sm sm:text-base md:text-lg leading-relaxed text-justify lg:text-left" style={{ color: '#d4d4d8 !important' }}>
                     I am fluent in classics like <span className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent font-semibold">Javascript</span>, <span className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent font-semibold">ReactJs</span> and <span className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent font-semibold">React Native</span>.
                   </p>
                   
-                  <p className="text-sm sm:text-base md:text-lg leading-relaxed text-center lg:text-left" style={{ color: '#d4d4d8 !important' }}>
+                  <p className="text-sm sm:text-base md:text-lg leading-relaxed text-justify lg:text-left" style={{ color: '#d4d4d8 !important' }}>
                     My field of Interest's are building new <span className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent font-semibold">Web Technologies and Products</span> and also in areas related to <span className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent font-semibold">Deep Learning</span> and <span className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent font-semibold">Natural Language Processing</span>.
                   </p>
                   
-                  <p className="text-sm sm:text-base md:text-lg leading-relaxed text-center lg:text-left" style={{ color: '#d4d4d8 !important' }}>
+                  <p className="text-sm sm:text-base md:text-lg leading-relaxed text-justify lg:text-left" style={{ color: '#d4d4d8 !important' }}>
                     Whenever possible, I also apply my passion for developing products with Modern Javascript Library and Frameworks like <span className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent font-semibold">React.js</span>
                   </p>
                 </motion.div>
