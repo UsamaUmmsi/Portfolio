@@ -3,10 +3,15 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ChevronDown, Code, Smartphone, Github, Linkedin, Twitter, Instagram } from 'lucide-react'
 import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Hero3D from '../components/Hero3D'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const Home = () => {
   const heroRef = useRef(null)
+  const hero3DRef = useRef(null)
+  const aboutRef = useRef(null)
 
   const socialLinks = [
     { icon: Github, href: 'https://github.com/UsamaUmmsi', label: 'GitHub' },
@@ -27,14 +32,35 @@ const Home = () => {
         ease: 'power1.inOut',
       })
     }
+
+    // 3D Background scroll animation - only between hero and about sections
+    if (hero3DRef.current && aboutRef.current) {
+      // Set initial position higher up
+      gsap.set(hero3DRef.current, { y: '-20vh' })
+      
+      gsap.to(hero3DRef.current, {
+        y: '30vh', // Move down from -20vh to 30vh (total 50vh movement)
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: 'top top',
+          end: () => aboutRef.current.offsetTop - window.innerHeight,
+          scrub: 1, // Smooth scroll animation
+          ease: 'none'
+        }
+      })
+    }
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+    }
   }, [])
 
   return (
     <>
       {/* Hero Section */}
       <div ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* 3D Background */}
-        <div className="absolute inset-0 z-0" style={{ pointerEvents: 'none' }}>
+        {/* 3D Background with scroll animation */}
+        <div ref={hero3DRef} className="fixed inset-0 z-0" style={{ pointerEvents: 'none' }}>
           <Hero3D />
         </div>
 
@@ -181,7 +207,7 @@ const Home = () => {
       </div>
 
       {/* About Me Section */}
-      <div className="relative py-6 sm:py-12 md:py-20 px-3 sm:px-4 md:px-6 lg:px-8 z-20">
+      <div ref={aboutRef} className="relative py-6 sm:py-12 md:py-20 px-3 sm:px-4 md:px-6 lg:px-8 z-20">
         <div className="container mx-auto max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
